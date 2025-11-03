@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-const NotesSection = ({ group, addNote, groups, onBack}) => {
+const NotesSection = ({ group, addNote, groups, onBack }) => {
   const [noteText, setNoteText] = useState("");
   const [notes, setNotes] = useState([]);
 
@@ -17,7 +17,7 @@ const NotesSection = ({ group, addNote, groups, onBack}) => {
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault(); 
+      e.preventDefault();
       handleAddNote();
     }
   };
@@ -30,7 +30,9 @@ const NotesSection = ({ group, addNote, groups, onBack}) => {
     <div className="notes-section">
       {/*shows only selected group */}
       <div className="notes-header">
-        <button className="back-btn" onClick={onBack}>←</button>
+        <button className="back-btn" onClick={onBack}>
+          ←
+        </button>
         <div className="avatar" style={{ backgroundColor: avatarColor }}>
           {initials}
         </div>
@@ -40,18 +42,23 @@ const NotesSection = ({ group, addNote, groups, onBack}) => {
       {/* Notes list */}
       <div className="notes-list">
         {notes.length === 0 ? (
-          <p>No notes yet. Add one below.</p>
+          <div className="notes-list-empty">
+            <p>Your Notes is Empty.</p>
+          </div>
         ) : (
           notes.map((note) => (
             <div key={note.id} className="note-item">
               <p>{note.text}</p>
               <span>
-                {new Date(note.date).toLocaleDateString("en-GB", {
-                  day: "numeric",
-                  month: "long",
-                  year: "numeric",
-                })}{" "}
-                &bull;{" "} {note.time}
+                <span className="note-date">
+                  {new Date(note.date).toLocaleDateString("en-GB", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </span>
+                <span className="note-dot">•</span>
+                <span className="note-time">{note.time}</span>
               </span>
             </div>
           ))

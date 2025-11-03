@@ -3,6 +3,7 @@ import GroupList from "./components/GroupList";
 import NotesSection from "./Components/NoteSection";
 import Popup from "./Components/Popup";
 import "./index.css";
+import emptyImg from "./assets/pocket_notes.png";
 
 function App() {
   const [groups, setGroups] = useState(() => {
@@ -32,7 +33,10 @@ function App() {
           id: Date.now(),
           text: noteText,
           date: date.toLocaleDateString(),
-          time: date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+          time: date.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
         };
         return { ...group, notes: [...group.notes, newNote] };
       }
@@ -69,16 +73,19 @@ function App() {
           />
         ) : (
           <div className="empty-state">
-            <h3>Select or Create a Group</h3>
+            <div className="empty-notes">
+              <img src={emptyImg} alt="No notes yet" />
+              <h1>Pocket Notes</h1>
+              <p> Send and receive messages without keeping your phone online.</p>
+              <p>Use Pocket Notes on up to 4 linked devices and 1 mobile phone</p>
+            </div>
+            <p>🔒end-to-end encrypted</p>
           </div>
         )}
       </div>
 
       {showPopup && (
-        <Popup
-          onClose={() => setShowPopup(false)}
-          onAddGroup={addGroup}
-        />
+        <Popup onClose={() => setShowPopup(false)} onAddGroup={addGroup} />
       )}
     </div>
   );
