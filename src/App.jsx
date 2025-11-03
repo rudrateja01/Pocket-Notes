@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import GroupList from "./components/GroupList";
+import GroupList from "./components/GroupList.jsx";
 import NotesSection from "./Components/NoteSection";
 import Popup from "./Components/Popup";
 import "./index.css";
