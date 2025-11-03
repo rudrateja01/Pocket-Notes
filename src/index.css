@@ -106,7 +106,7 @@ body {
 }
 
 .right-panel p{
-  text-align: center;
+  text-align: left;
   color: #292929;
 }
 
@@ -129,6 +129,10 @@ body {
 .empty-notes p{
   color: #292929;
   margin-bottom: 5px;
+}
+.empty-notes .lock{
+  position: relative;
+  top: 200px;
 }
 
 .notes-section {
@@ -195,6 +199,7 @@ body {
   border: none;
   outline: none;
   resize: none;
+  text-align: center;
 }
 
 .note-input button {
