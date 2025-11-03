@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import GroupList from "./Components/GroupList";
-import NotesSection from "./Components/NoteSection";
-import Popup from "./Components/Popup";
+import GroupList from "./Components/GroupList.jsx";
+import NotesSection from "./Components/NoteSection.jsx";
+import Popup from "./Components/Popup.jsx";
 import "./index.css";
 import emptyImg from "./assets/pocket_notes.png";
 
